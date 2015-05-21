@@ -26,11 +26,39 @@
      
       <div id="content">
         <!-- insert the page content here -->
-        <h1>Escriba el texto</h1>
+        <form action="/" method="post">{% csrf_token %}
+          <h1>Escriba el texto</h1>
           <div class="divider"></div>
         
-            <textarea id="texto" name="texto" row=30 cols="100"></textarea> <br><br>
-            <input type="submit" value=" ¡Analizar!" />
+          <textarea id="texto" name="texto" row=30 cols="100"
+            >{% if texto_entrada %}{{ texto_entrada }}{% else %}Esta es una prueba del Analizador Sint&aacute;ctico Probabil&iacute;stico
+            {% endif %}
+          </textarea> <br><br>
+          <input type="submit" value=" ¡Analizar!" />
+        </form>{% csrf_token %}
+
+        {% if results %}
+            <br>
+            <p>Tiempo de ejecucion: {{ t_ejecucion }}</p>
+            <table width="100%">
+                <thead>
+                    <td><strong>Palabra</strong></td>
+                    <td><strong>Lema</strong></td>
+                    <td><strong>Etiquetas</strong></td>
+                </tr>
+                </thead>
+                <tbody>
+              {% for row in results %}
+                <tr>
+                    {% for col in row %}
+                        <td>{{col}}</td>
+                    {% endfor %}
+                </tr>
+              {% endfor %}
+                </tbody>
+            </table>
+
+        {% endif %}
         
         
     </div>

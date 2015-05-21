@@ -14,6 +14,17 @@ import sys
 
 
 def index(request):
-    return render(request, 'index.html')
+	if request.method == 'POST':
+		if 'texto' in request.POST and request.POST['texto']:
+			entrada_texto = request.POST['texto']
+			return render(request, 'index.html',
+				{'texto_entrada': entrada_texto})
+		else:
+			return HttpResponse('Please submit a search term.')
+	elif request.method == 'GET':
+		return render(request, 'index.html')
+	else:
+		raise Http404()
+    
 
 

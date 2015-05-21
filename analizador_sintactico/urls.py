@@ -7,10 +7,8 @@ urlpatterns = patterns('polls.views',
 
                        # Examples:
                        # url(r'^$', 'PLN.views.home', name='home'),
-                       
 
                        url(r'^$', 'index', name='index'),
 
-
                        
-                       )
+)
