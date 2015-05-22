@@ -34,6 +34,11 @@
             >{% if texto_entrada %}{{ texto_entrada }}{% else %}Esta es una prueba del Analizador Sint&aacute;ctico Probabil&iacute;stico
             {% endif %}
           </textarea> <br><br>
+          <select>
+            <option value=1>Stanford Parser</option>
+            <option value=2>Bikel</option>
+          </select>
+
           <input type="submit" value=" ¡Analizar!" />
         </form>{% csrf_token %}
 
