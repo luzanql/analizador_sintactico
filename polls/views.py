@@ -7,6 +7,7 @@ import datetime
 #from .forms import TextoEntradaForm
 # -*- encoding: utf-8 -*-
 import sys
+from analizador_sintactico.Analyzer import Analyzer
 
 
 #sys.path.append('/home/andrea-lozada/Descargas/freeling-3.1/APIs/python')
@@ -16,9 +17,12 @@ import sys
 def index(request):
 	if request.method == 'POST':
 		if 'texto' in request.POST and request.POST['texto']:
+			
 			entrada_texto = request.POST['texto']
-			return render(request, 'index.html',
-				{'texto_entrada': entrada_texto})
+			analizador = Analyzer()
+			analizador.execute(entrada_texto)
+			return render(request, 'index.html',{'texto_entrada': entrada_texto, 'results':1})
+
 		else:
 			return HttpResponse('Please submit a search term.')
 	elif request.method == 'GET':
