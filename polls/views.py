@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
 import datetime
 #import os
-from polls.forms import TextoEntradaForm
+#from .forms import TextoEntradaForm
 # -*- encoding: utf-8 -*-
 import sys
 
