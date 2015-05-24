@@ -19,6 +19,8 @@ def index(request):
 		if 'texto' in request.POST and request.POST['texto']:
 			
 			entrada_texto = request.POST['texto']
+			metodo= request.POST.get("metodo",0)
+			print (metodo)
 			analizador = Analyzer()
 			analizador.execute(entrada_texto)
 			return render(request, 'index.html',{'texto_entrada': entrada_texto, 'results':1})

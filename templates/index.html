@@ -34,7 +34,7 @@
             >{% if texto_entrada %}{{ texto_entrada }}{% else %}Esta es una prueba del Analizador Sint&aacute;ctico Probabil&iacute;stico
             {% endif %}
           </textarea> <br><br>
-          <select>
+          <select name="metodo">
             <option value=1>Stanford Parser</option>
             <option value=2>Bikel</option>
           </select>
@@ -45,7 +45,7 @@
 
         {% if results %}
           <br>
-          <img src="{% static "tree.png" %}" /> 
+          <img src="{{STATIC_URL}}/img/tree.png" width="70%"/> 
 
         {% endif %}
         

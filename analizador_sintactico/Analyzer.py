@@ -24,7 +24,7 @@ class Analyzer:
 		for line in sentence:
 			cf = CanvasFrame()
 			tc = TreeWidget(cf.canvas(),line)
-			cf.add_widget(tc,10,10) # (10,10) offsets
+			cf.add_widget(tc,40,40) # (10,10) offsets
 			cf.print_to_file('tree.ps')
-			cf.destroy()
-			os.popen('convert tree.ps tree.png')
+			#cf.destroy()
+			os.popen('convert tree.ps static/img/tree.png')
