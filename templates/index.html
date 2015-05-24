@@ -42,26 +42,10 @@
           <input type="submit" value=" ¡Analizar!" />
         </form>{% csrf_token %}
 
+
         {% if results %}
-            <br>
-            <p>Tiempo de ejecucion: {{ t_ejecucion }}</p>
-            <table width="100%">
-                <thead>
-                    <td><strong>Palabra</strong></td>
-                    <td><strong>Lema</strong></td>
-                    <td><strong>Etiquetas</strong></td>
-                </tr>
-                </thead>
-                <tbody>
-              {% for row in results %}
-                <tr>
-                    {% for col in row %}
-                        <td>{{col}}</td>
-                    {% endfor %}
-                </tr>
-              {% endfor %}
-                </tbody>
-            </table>
+          <br>
+          <img src="{% static "tree.png" %}" /> 
 
         {% endif %}
         
