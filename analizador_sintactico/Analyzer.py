@@ -27,4 +27,4 @@ class Analyzer:
 			cf.add_widget(tc,40,40) # (10,10) offsets
 			cf.print_to_file('tree.ps')
 			#cf.destroy()
-			os.popen('convert tree.ps static/img/tree.png')
+			os.popen('convert tree.ps -resize 300% static/img/tree.png')
