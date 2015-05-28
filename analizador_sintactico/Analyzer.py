@@ -1,5 +1,7 @@
 #!/usr/bin/python 
 
+import nltk
+import re
 import os
 from nltk.parse import stanford
 from nltk import Tree
@@ -10,6 +12,32 @@ class Analyzer:
 
 	def __init__(self):
 		pass
+
+
+	def tagger(self, frase):
+		#hacer el tag
+		text = nltk.word_tokenize(frase)
+		postag = nltk.pos_tag(text)
+
+		#convertirlo al formato lips
+		result = "("
+		
+		for index in range(len(postag)):
+			result +=  "( " + postag[index][0] + " ( " + postag[index][1]+ " ) )"
+
+		result += ")"
+
+		#ejecutar bikel
+		
+		os.popen('tcsh parse 400 ../../dbparser/settings/collins.properties ../../wsj-02-21.obj.gz ' +result)
+
+
+		
+
+			
+		
+		return result
+		
 
 	def execute(self, frase):
 
