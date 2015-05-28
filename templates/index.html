@@ -31,9 +31,7 @@
           <div class="divider"></div>
         
           <textarea id="texto" name="texto" row=30 cols="100"
-            >{% if texto_entrada %}{{ texto_entrada }}{% else %}Esta es una prueba del Analizador Sint&aacute;ctico Probabil&iacute;stico
-            {% endif %}
-          </textarea> <br><br>
+            >{% if texto_entrada %}{{ texto_entrada }}{% else %}Esta es una prueba del Analizador Sintactico Probabilistico{% endif %}</textarea> <br><br>
           <select name="metodo">
             <option value=1>Stanford Parser</option>
             <option value=2>Bikel</option>
@@ -43,9 +41,15 @@
         </form>{% csrf_token %}
 
 
-        {% if results %}
+        {% if stanford %}
           <br>
           <img src="{{STATIC_URL}}/img/tree.png" width="100%"/> 
+
+        {% endif %}
+
+        {% if bikel %}
+          <br>
+          {{ resultado }}
 
         {% endif %}
         

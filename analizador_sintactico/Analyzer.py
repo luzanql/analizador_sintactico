@@ -1,8 +1,10 @@
 #!/usr/bin/python 
 
 import nltk
+import datetime
 import re
 import os
+import shlex, subprocess
 from nltk.parse import stanford
 from nltk import Tree
 from nltk.draw.util import CanvasFrame
@@ -28,15 +30,26 @@ class Analyzer:
 		result += ")"
 
 		#ejecutar bikel
-		
-		os.popen('tcsh parse 400 ../../dbparser/settings/collins.properties ../../wsj-02-21.obj.gz ' +result)
 
+		#pasar resultado a archivo
+		#hoy = str(datetime.date.today())
 
+		f = open('prueba', 'w')
+		f.write(result)
+		f.close()
 		
+		#consola = os.popen('tcsh ../dbparser/bin/parse 400 ../dbparser/settings/collins.properties ../wsj-02-21.obj.gz prueba')
 
-			
-		
-		return result
+		args = shlex.split("tcsh ../dbparser/bin/parse 400 ../dbparser/settings/collins.properties ../wsj-02-21.obj.gz prueba")
+		print args
+
+		p = subprocess.Popen(args,stderr=subprocess.STDOUT)
+		p.wait()
+
+		f2 = open('prueba.parsed', 'r')
+		resultado = f2.read()
+
+		return resultado
 		
 
 	def execute(self, frase):

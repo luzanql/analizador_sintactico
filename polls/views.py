@@ -21,9 +21,10 @@ def index(request):
 			analizador = Analyzer()
 			if metodo == "1":
 				analizador.execute(entrada_texto)
+				return render(request, 'index.html',{'texto_entrada': entrada_texto, 'stanford':1})
 			elif metodo == "2":
-				entrada_texto = analizador.tagger(entrada_texto)
-			return render(request, 'index.html',{'texto_entrada': entrada_texto, 'results':1})
+				resultado = analizador.tagger(entrada_texto)
+				return render(request, 'index.html',{'texto_entrada': entrada_texto, 'bikel':1, 'resultado': resultado })
 		else:
 			return HttpResponse('Please submit a search term.')
 	elif request.method == 'GET':
