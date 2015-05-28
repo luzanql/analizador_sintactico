@@ -49,6 +49,16 @@ class Analyzer:
 		f2 = open('prueba.parsed', 'r')
 		resultado = f2.read()
 
+		t = Tree.fromstring(resultado)
+
+		cf = CanvasFrame()
+		tc = TreeWidget(cf.canvas(),t)
+		cf.add_widget(tc,40,40) # (10,10) offsets
+		cf.print_to_file('tree_bikel.ps')
+		#cf.destroy()
+		os.popen('convert tree_bikel.ps -resize 300% static/img/tree_bikel.png')
+		
+
 		return resultado
 		
 
@@ -66,6 +76,6 @@ class Analyzer:
 			cf = CanvasFrame()
 			tc = TreeWidget(cf.canvas(),line)
 			cf.add_widget(tc,40,40) # (10,10) offsets
-			cf.print_to_file('tree.ps')
+			cf.print_to_file('tree_stanford.ps')
 			#cf.destroy()
-			os.popen('convert tree.ps -resize 300% static/img/tree.png')
+			os.popen('convert tree_stanford.ps -resize 300% static/img/tree_stanford.png')

@@ -1,1 +1,1 @@
-(S (NP (NNP Esta) (NNS es)) (VP (VBP una) (NP (NN prueba) (NNP del) (NNP Analizador) (NNP Sintactico) (NNP Probabilistico))))
+(S (VP (VP (VB Read) (NP (DT a) (JJ bracketed) (NN tree) (NN string))) (CC and) (VP (VB return) (NP (DT the) (VBG resulting) (NN tree)))))

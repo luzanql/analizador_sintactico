@@ -1,1 +1,1 @@
-(( Esta ( NNP ) )( es ( NNS ) )( una ( VBP ) )( prueba ( NN ) )( del ( NN ) )( Analizador ( NNP ) )( Sintactico ( NNP ) )( Probabilistico ( NNP ) ))
+(( Read ( NNP ) )( a ( DT ) )( bracketed ( JJ ) )( tree ( NN ) )( string ( VBG ) )( and ( CC ) )( return ( NN ) )( the ( DT ) )( resulting ( VBG ) )( tree ( NN ) ))
